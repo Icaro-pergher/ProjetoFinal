@@ -27,7 +27,7 @@ from gym import spaces
 from gym.utils import seeding
 from std_msgs.msg import Float32MultiArray
 
-EPISODES = 5001
+EPISODES = 1001
 
 import torch as T
 
