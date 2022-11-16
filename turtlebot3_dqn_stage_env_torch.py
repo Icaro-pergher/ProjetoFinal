@@ -40,7 +40,7 @@ from torch.utils.tensorboard import SummaryWriter
 
 time.sleep(4)
 os.environ['ROS_MASTER_URI'] = "http://localhost:{}/".format(11310 + 1)
-rospy.init_node('turtlebot3_dqn_stage_3')
+rospy.init_node('turtlebot3_dqn_stage_3'.replace('-', '_') + "_w{}".format(1))
 env = gym.make('turtlebot3_dqn_stage_3', observation_mode=0, continuous=True, env_stage=1)
 time.sleep(4)
 
