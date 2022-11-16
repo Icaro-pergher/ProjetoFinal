@@ -321,7 +321,7 @@ if __name__ == '__main__':
          #           writer.writerow(csvRow)
       #          f.close()
                 if e % 100 == 0: #save model after each 100 ep.
-                    T.save(agent.model.state_dict(), 'dqn_st1v2_model.pth')
+                    T.save(agent.model.state_dict(), 'dqn_stl_model.pth')
                     print ('Saved model at episode', e)                    
                 agent.updateTargetModel()
                 scores.append(score)
