@@ -147,7 +147,7 @@ class ReinforceAgent():
     def __init__(self, state_size, action_size, writer):
         self.pub_result = rospy.Publisher('result', Float32MultiArray, queue_size=5)
         self.Path = os.path.dirname(os.path.realpath(__file__))
-        self.dirPath = self.Path.replace('turtlebot3_dqn/nodes', 'turtlebot3_dqn/save_model/torch_model/stage_4_')
+        self.dirPath = self.Path.replace('turtlebot3_dqn/nodes', 'turtlebot3_dqn/save_model/torch_model/stage_1_')
         self.resultPATH = self.Path.replace('turtlebot3_dqn/nodes', 'turtlebot3_dqn/result/result.csv')
         self.result = Float32MultiArray()
 
@@ -321,7 +321,7 @@ if __name__ == '__main__':
          #           writer.writerow(csvRow)
       #          f.close()
                 if e % 100 == 0: #save model after each 100 ep.
-                    T.save(agent.model.state_dict(), 'dqn_st2_model.pth')
+                    T.save(agent.model.state_dict(), 'dqn_st1v2_model.pth')
                     print ('Saved model at episode', e)                    
                 agent.updateTargetModel()
                 scores.append(score)
