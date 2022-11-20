@@ -125,7 +125,7 @@ class ReinforceAgent():
             self.epsilon = 0.1
         #    self.global_step = self.load_episode# dummy for bypass the batch sizes
             print ('Loading model ')
-            self.model.load_state_dict(T.load(self.dirPath + '/dqn_st2_model.pth'))
+            self.model.load_state_dict(T.load(self.dirPath + '/dqn_stl_model.pth'))
             self.model.eval()
             print ("Load model state dict")
             # TODO: Load previos epsilon self.epsilon = 0.99 
@@ -156,7 +156,7 @@ class ReinforceAgent():
     	posex = round(msg.pose.pose.position.x,8) 
     	
     #	with open("nav/ERROtest_nav_DDQN_st2.txt", 'a') as arq:
-    	with open("nav/test_nav_DQN_st2.txt", 'a') as arq:
+    	with open("nav/test_nav_DQN_stl.txt", 'a') as arq:
     		arq.write(str(posex))
     		arq.write(' ')
     		arq.write(str(posey))
@@ -244,7 +244,7 @@ if __name__ == '__main__':
                 
                 
             #    with open("metrics/ERROtest_metrics_DDQN_st2.txt", 'a') as arq:
-                with open("metrics/test_metrics_DQN_st2.txt", 'a') as arq:
+                with open("metrics/test_metrics_DQN_stl.txt", 'a') as arq:
                      arq.write(str(e))
                      arq.write(' ')
                      arq.write(str(score))
