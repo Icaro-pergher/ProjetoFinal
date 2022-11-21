@@ -201,7 +201,7 @@ if __name__ == '__main__':
 
     for e in tqdm(range(1, EPISODES)):
         done = False
-        goal, n_goal = agent.test_goals(e, 1) # e is the local episode and the number is the stage. Use 3 for L stage and other numbers for others envs (1, 2...)
+        goal, n_goal = agent.test_goals(e, 3) # e is the local episode and the number is the stage. Use 3 for L stage and other numbers for others envs (1, 2...)
         state = env.reset(new_random_goals=False, goal=goal)
         score = 0
         e_time = time.time()
