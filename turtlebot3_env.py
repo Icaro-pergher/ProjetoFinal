@@ -21,7 +21,7 @@ TURTLE = '003'
 
 
 class TurtleBot3Env(gym.Env):
-    def __init__(self, observation_mode=0, env_stage=1, max_env_size=None, continuous=False, observation_size=24,
+    def __init__(self, observation_mode=0, env_stage=3, max_env_size=None, continuous=False, observation_size=24,
                  action_size=5, min_range=0.1, max_range=2.5, min_ang_vel=-1.5, max_ang_vel=1.5, min_linear_vel=-0.5,
                  max_linear_vel=0.5, goalbox_distance=0.35, collision_distance=0.18, reward_goal=200.,
                  reward_collision=-20, angle_out=250, goal_list=None, test_real=False):
