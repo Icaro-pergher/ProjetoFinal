@@ -40,7 +40,7 @@ from torch.utils.tensorboard import SummaryWriter
 time.sleep(4)
 os.environ['ROS_MASTER_URI'] = "http://localhost:{}/".format(11310 + 1)
 rospy.init_node('TurtleBot3_Circuit_Simple-v0'.replace('-', '_') + "_w{}".format(1))
-env = gym.make('TurtleBot3_Circuit_Simple-v0', observation_mode=0, continuous=True, env_stage=3)
+env = gym.make('TurtleBot3_Circuit_Simple-v0', observation_mode=0, continuous=True, env_stage=1)
 time.sleep(4)
 
 observation = env.reset(new_random_goals=True, goal=None)
@@ -125,7 +125,7 @@ class ReinforceAgent():
             self.epsilon = 0.1
         #    self.global_step = self.load_episode# dummy for bypass the batch sizes
             print ('Loading model ')
-            self.model.load_state_dict(T.load(self.dirPath + '/dqn_stl_model.pth'))
+            self.model.load_state_dict(T.load(self.dirPath + '/dqn_st1_model.pth'))
             self.model.eval()
             print ("Load model state dict")
             # TODO: Load previos epsilon self.epsilon = 0.99 
@@ -156,7 +156,7 @@ class ReinforceAgent():
     	posex = round(msg.pose.pose.position.x,8) 
     	
     #	with open("nav/ERROtest_nav_DDQN_st2.txt", 'a') as arq:
-    	with open("nav/test_nav_DQN_stl.txt", 'a') as arq:
+    	with open("nav/test_nav_DQN_st1.txt", 'a') as arq:
     		arq.write(str(posex))
     		arq.write(' ')
     		arq.write(str(posey))
@@ -201,7 +201,7 @@ if __name__ == '__main__':
 
     for e in tqdm(range(1, EPISODES)):
         done = False
-        goal, n_goal = agent.test_goals(e, 3) # e is the local episode and the number is the stage. Use 3 for L stage and other numbers for others envs (1, 2...)
+        goal, n_goal = agent.test_goals(e, 1) # e is the local episode and the number is the stage. Use 3 for L stage and other numbers for others envs (1, 2...)
         state = env.reset(new_random_goals=False, goal=goal)
         score = 0
         e_time = time.time()
@@ -244,7 +244,7 @@ if __name__ == '__main__':
                 
                 
             #    with open("metrics/ERROtest_metrics_DDQN_st2.txt", 'a') as arq:
-                with open("metrics/test_metrics_DQN_stl.txt", 'a') as arq:
+                with open("metrics/test_metrics_DQN_st1.txt", 'a') as arq:
                      arq.write(str(e))
                      arq.write(' ')
                      arq.write(str(score))
