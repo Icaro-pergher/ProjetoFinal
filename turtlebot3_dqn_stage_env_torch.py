@@ -342,4 +342,4 @@ if __name__ == '__main__':
             if agent.global_step % agent.target_update == 0:
                 rospy.loginfo("UPDATE TARGET NETWORK")
                 agent.updateTargetModel()
-
+	writer.close()
