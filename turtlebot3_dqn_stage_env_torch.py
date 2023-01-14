@@ -41,7 +41,7 @@ from torch.utils.tensorboard import SummaryWriter
 time.sleep(4)
 os.environ['ROS_MASTER_URI'] = "http://localhost:{}/".format(11310 + 1)
 rospy.init_node('TurtleBot3_Circuit_Simple-v0'.replace('-', '_') + "_w{}".format(1))
-env = gym.make('TurtleBot3_Circuit_Simple-v0', observation_mode=0, continuous=True, env_stage=1)
+env = gym.make('TurtleBot3_Circuit_Simple-v0', observation_mode=0, continuous=True, env_stage=3)
 time.sleep(4)
 
 observation = env.reset(new_random_goals=True, goal=None)
