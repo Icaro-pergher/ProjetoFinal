@@ -20,7 +20,7 @@ import math
 import gym_turtlebot3
 from geometry_msgs.msg import Twist, Point, Pose
 from sensor_msgs.msg import LaserScan
-from nav_msgs.msg import Odometry
+from nav_msgs.msg import Odometry, Path
 from std_srvs.srv import Empty
 from gym import spaces
 from gym.utils import seeding
@@ -50,6 +50,9 @@ if not os.path.exists('logs'):
 	
 writer = SummaryWriter('logs')
 
+path = Path()
+rospy.init_node('path_node')
+path_pub = rospy.Publisher('/path', Path, queue_size=10)
 
 class LinearDeepQNetwork(nn.Module):
     
